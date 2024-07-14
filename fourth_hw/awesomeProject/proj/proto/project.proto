@@ -1,0 +1,41 @@
+option go_package = "awesomeproject/dto";
+
+package dto;
+
+service AwesomeProject {
+    rpc CreateAccount (CreateAccountRequest) returns (Empty) {}
+    rpc GetAccount (GetAccountRequest) returns (GetAccountResponse) {}
+    rpc SetBalance (SetBalanceRequest) returns (Empty) {}
+    rpc RenameAccount (RenameAccountRequest) returns (Empty) {}
+    rpc DeleteAccount (DeleteAccountRequest) returns (Empty) {}
+}
+
+message CreateAccountRequest {
+    required string name = 1;
+    required int64 amount = 2;
+}
+
+message GetAccountRequest {
+    required string name = 1;
+}
+
+message GetAccountResponse {
+    required string name = 1;
+    required int64 amount = 2;
+}
+
+message SetBalanceRequest {
+    required string name = 1;
+    required int64 amount = 2;
+}
+
+message RenameAccountRequest {
+    required string name = 1;
+    required string new_name = 2;
+}
+
+message DeleteAccountRequest {
+    required string name = 1;
+}
+
+message Empty {}
